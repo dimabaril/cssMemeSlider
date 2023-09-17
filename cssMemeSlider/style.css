@@ -5,15 +5,15 @@ body {
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background: black;
+    background: white;
 }
 .carousel {
     display: flex;
     flex-direction: column;
     gap: 1vh;
-    width: 50%;
+    width: 75%;
     justify-content: center;
-    background: gray;
+    background: dimgray;
     border-radius: 1vh;
     padding: 1vh;
 }
@@ -22,11 +22,7 @@ input[type="radio"] {
     display: none;
 }
 
-.slider_wrapper {
-    overflow: hidden;
-    border-radius: 0.5vh;
-}
-
+.slider_wrapper,
 .text_wrapper {
     overflow: hidden;
     border-radius: 0.5vh;
@@ -55,6 +51,10 @@ input[type="radio"] {
 
 .texts {
     display: flex;
+
+    /* scroll another way */
+    flex-direction: row-reverse;
+
     width: 400%;
     transition: all 1s;
     flex-shrink: 0;
@@ -105,17 +105,18 @@ input[type="radio"] {
     transform: translateX(-75%);
 }
 
+/* scroll another way */
 #slide1:checked ~ .text_and_controls .text_wrapper .texts {
-    transform: translateX(0%);
+    transform: translateX(-75%);
 }
 #slide2:checked ~ .text_and_controls .text_wrapper .texts {
-    transform: translateX(-25%);
-}
-#slide3:checked ~ .text_and_controls .text_wrapper .texts {
     transform: translateX(-50%);
 }
+#slide3:checked ~ .text_and_controls .text_wrapper .texts {
+    transform: translateX(-25%);
+}
 #slide4:checked ~ .text_and_controls .text_wrapper .texts {
-    transform: translateX(-75%);
+    transform: translateX(0%);
 }
 
 #slide1:checked ~ .text_and_controls .controls label:nth-child(1) .radio_btn,
@@ -123,4 +124,20 @@ input[type="radio"] {
 #slide3:checked ~ .text_and_controls .controls label:nth-child(3) .radio_btn,
 #slide4:checked ~ .text_and_controls .controls label:nth-child(4) .radio_btn {
     background: none;
+}
+
+@media (max-width: 768px) {
+    .carousel {
+        width: 90%;
+    }
+    .text_and_controls {
+        flex-direction: column-reverse;
+    }
+    .controls label {
+        width: 5vh;
+    }
+    .controls label .radio_btn {
+        width: 3vh;
+        height: 3vh;
+    }
 }
