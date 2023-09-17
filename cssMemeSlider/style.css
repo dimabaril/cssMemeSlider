@@ -11,8 +11,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1vh;
-    width: 75%;
-    justify-content: center;
+    max-width: 85%;
+    max-height: 90%;
     background: dimgray;
     border-radius: 1vh;
     padding: 1vh;
@@ -46,6 +46,7 @@ input[type="radio"] {
 .text_and_controls {
     display: flex;
     gap: 1vh;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -55,7 +56,6 @@ input[type="radio"] {
     flex-direction: row-reverse;
     width: 400%;
     transition: all 1s;
-    flex-shrink: 0;
 }
 .text {
     width: 100%;
