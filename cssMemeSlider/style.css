@@ -51,10 +51,8 @@ input[type="radio"] {
 
 .texts {
     display: flex;
-
     /* scroll another way */
     flex-direction: row-reverse;
-
     width: 400%;
     transition: all 1s;
     flex-shrink: 0;
@@ -62,7 +60,7 @@ input[type="radio"] {
 .text {
     width: 100%;
     padding: 1vh;
-    font-size: 3vh;
+    font: 2vh helvetica;
     background: white;
 }
 
