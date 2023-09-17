@@ -13,7 +13,6 @@ body {
     gap: 1vh;
     width: 50%;
     justify-content: center;
-    overflow: hidden;
     background: gray;
     border-radius: 1vh;
     padding: 1vh;
@@ -24,6 +23,11 @@ input[type="radio"] {
 }
 
 .slider_wrapper {
+    overflow: hidden;
+    border-radius: 0.5vh;
+}
+
+.text_wrapper {
     overflow: hidden;
     border-radius: 0.5vh;
 }
@@ -43,21 +47,23 @@ input[type="radio"] {
     object-fit: cover;
 }
 
-.bottom_row_or_column {
+.text_and_controls {
     display: flex;
     gap: 1vh;
     align-items: center;
 }
 
+.texts {
+    display: flex;
+    width: 400%;
+    transition: all 1s;
+    flex-shrink: 0;
+}
 .text {
-    flex-grow: 1;
-    /* flex-shrink: 0; */
-    /* width: 50%; */
-    display: none;
+    width: 100%;
     padding: 1vh;
     font-size: 3vh;
     background: white;
-    border-radius: 0.5vh;
 }
 
 .controls {
@@ -99,22 +105,22 @@ input[type="radio"] {
     transform: translateX(-75%);
 }
 
-#slide1:checked ~ .bottom_row_or_column .text:nth-child(1),
-#slide2:checked ~ .bottom_row_or_column .text:nth-child(2),
-#slide3:checked ~ .bottom_row_or_column .text:nth-child(3),
-#slide4:checked ~ .bottom_row_or_column .text:nth-child(4) {
-    display: block;
-    /* opacity: 1; */
-    /* width: 100%; */
+#slide1:checked ~ .text_and_controls .text_wrapper .texts {
+    transform: translateX(0%);
+}
+#slide2:checked ~ .text_and_controls .text_wrapper .texts {
+    transform: translateX(-25%);
+}
+#slide3:checked ~ .text_and_controls .text_wrapper .texts {
+    transform: translateX(-50%);
+}
+#slide4:checked ~ .text_and_controls .text_wrapper .texts {
+    transform: translateX(-75%);
 }
 
-#slide1:checked ~ .bottom_row_or_column .controls label:nth-child(1) .radio_btn,
-#slide2:checked ~ .bottom_row_or_column .controls label:nth-child(2) .radio_btn,
-#slide3:checked ~ .bottom_row_or_column .controls label:nth-child(3) .radio_btn,
-#slide4:checked
-    ~ .bottom_row_or_column
-    .controls
-    label:nth-child(4)
-    .radio_btn {
+#slide1:checked ~ .text_and_controls .controls label:nth-child(1) .radio_btn,
+#slide2:checked ~ .text_and_controls .controls label:nth-child(2) .radio_btn,
+#slide3:checked ~ .text_and_controls .controls label:nth-child(3) .radio_btn,
+#slide4:checked ~ .text_and_controls .controls label:nth-child(4) .radio_btn {
     background: none;
 }
