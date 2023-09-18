@@ -89,6 +89,10 @@ input[type="radio"] {
     background: white;
     border: 0.3vh solid white;
 }
+.controls label:active .radio_btn {
+    transform: scale(1.2);
+    transition: all 0.05s;
+}
 
 #slide1:checked ~ .slider_wrapper .slides {
     transform: translateX(0%);
