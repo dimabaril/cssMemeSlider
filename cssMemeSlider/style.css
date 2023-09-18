@@ -1,0 +1,145 @@
+body {
+    margin: auto;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: white;
+}
+.carousel {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    max-width: 85%;
+    max-height: 90%;
+    background: dimgray;
+    border-radius: 1vh;
+    padding: 1vh;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.slider_wrapper,
+.text_wrapper {
+    overflow: hidden;
+    border-radius: 0.5vh;
+}
+
+.slides {
+    display: flex;
+    width: 400%;
+    transition: all 1s;
+}
+
+.slide {
+    width: 25%;
+}
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.text_and_controls {
+    display: flex;
+    gap: 1vh;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.texts {
+    display: flex;
+    /* scroll another way */
+    flex-direction: row-reverse;
+    width: 400%;
+    transition: all 1s;
+}
+.text {
+    width: 100%;
+    padding: 1vh;
+    font: 2vh helvetica;
+    background: white;
+}
+
+.controls {
+    display: flex;
+    margin: 1vh;
+}
+
+.controls label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3vh;
+    height: 3vh;
+    cursor: pointer;
+}
+.controls label .radio_btn {
+    width: 1.5vh;
+    height: 1.5vh;
+    background: lightblue;
+    border: 0.3vh solid lightblue;
+    border-radius: 50%;
+    transition: all 0.5s;
+}
+.controls label:hover .radio_btn {
+    background: white;
+    border: 0.3vh solid white;
+}
+.controls label:active .radio_btn {
+    transform: scale(1.2);
+    transition: all 0.05s;
+}
+
+#slide1:checked ~ .slider_wrapper .slides {
+    transform: translateX(0%);
+}
+#slide2:checked ~ .slider_wrapper .slides {
+    transform: translateX(-25%);
+}
+#slide3:checked ~ .slider_wrapper .slides {
+    transform: translateX(-50%);
+}
+#slide4:checked ~ .slider_wrapper .slides {
+    transform: translateX(-75%);
+}
+
+/* scroll another way */
+#slide1:checked ~ .text_and_controls .text_wrapper .texts {
+    transform: translateX(-75%);
+}
+#slide2:checked ~ .text_and_controls .text_wrapper .texts {
+    transform: translateX(-50%);
+}
+#slide3:checked ~ .text_and_controls .text_wrapper .texts {
+    transform: translateX(-25%);
+}
+#slide4:checked ~ .text_and_controls .text_wrapper .texts {
+    transform: translateX(0%);
+}
+
+#slide1:checked ~ .text_and_controls .controls label:nth-child(1) .radio_btn,
+#slide2:checked ~ .text_and_controls .controls label:nth-child(2) .radio_btn,
+#slide3:checked ~ .text_and_controls .controls label:nth-child(3) .radio_btn,
+#slide4:checked ~ .text_and_controls .controls label:nth-child(4) .radio_btn {
+    background: none;
+}
+
+@media (max-width: 768px) {
+    .carousel {
+        width: 90%;
+    }
+    .text_and_controls {
+        flex-direction: column-reverse;
+    }
+    .controls label {
+        width: 5vh;
+    }
+    .controls label .radio_btn {
+        width: 3vh;
+        height: 3vh;
+    }
+}
